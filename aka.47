@@ -1,0 +1,8 @@
+cd [minecraft directory here]
+wget https://github.com/AdoptOpenJDK/openjdk16-binaries/releases/download/jdk16u-2021-05-08-12-45/OpenJDK16U-jdk_arm_linux_hotspot_2021-05-08-12-45.tar.gz
+tar xzf OpenJDK16U-jdk_arm_linux_hotspot_2021-05-08-12-45.tar.gz
+export PATH=$PWD/jdk-16.0.1+4/bin:$PATH
+java -version
+You might have to do export PATH=$PWD/jdk-16.0.1+4/bin:$PATH after a reboot
+
+rO_Ot
