@@ -1,0 +1,8 @@
+```
+Get-Command [-Verb <String[]>] [-Noun <String[]>] [-Module <String[]>]
+  [-FullyQualifiedModule <ModuleSpecification[]>] [-TotalCount <Int32>] [-Syntax]
+  [-ShowCommandInfo] [[-ArgumentList] <Object[]>] [-All] [-ListImported]
+  [-ParameterName <String[]>] [-ParameterType <PSTypeName[]>] [<CommonParameters>]
+```
+
+150
