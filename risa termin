@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4" />
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.argosenpaikun.risa</groupId>
+    <artifactId>risa-cli</artifactId>
+    <version>1.0.1</version>
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>4.6</version>
+        </dependency>
+    </dependencies>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.source>1.8</maven.compiler.source>
+    </properties>
+
+    <build>
+        <finalName>risa-cli</fina
+13
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.argosenpaikun.risa.Risa</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+
+
+15
+60
+com\argosenpaikun\risa\utils\data\DelimiterException.class
+com\argosenpaikun\risa\utils\data\CSV.class
+com\argosenpaikun\risa\args\ArgException.class
+com\argosenpaikun\risa\args\StdOut.class
+com\argosenpaikun\risa\utils\MathUtil.class
+com\argosenpaikun\risa\Risa.class
+com\argosenpaikun\risa\Args.class
+com\argosenpaikun\risa\utils\CharUtil.class
+
+package com.argosenpaikun.risa.args;
+
+/**
+ * Author: Mohamed Affian bin Che Mohamed Onn
+ * Date: 12/11/2020
+ * Company: Dataran Teknologi Sdn. Bhd.
+ */
+
+import com.argosenpaikun.risa.utils.CharUtil;
+import com.argosenpaikun.risa.utils.data.CSV;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+
+/**
+ * This class manage standard output argument
+ */
+public class StdOut {
+
+    private boolean dryRun;
+
+    /**
+     * Initialize standard output (Constructor without parameter)
+     */
+    public StdOut() {
+        new StdOut(false);
+    }
+
+    /**
+     * Initialize standard output
+     *
+     * @param dryRun    dry run
+     */
+    public StdOut(boolean dryRun) {
+        this.dryRun = dryRun;
+    }
+
+    /**
+     * Print out standard output
+     *
+     * @param value string value
+     */
+    public void stdout(String value) {
+        try {
+            if (isDryRun()) stdOutDryRun(value);
+            else System.out.println(value);
+        } catch (ArgException | IOException ae) {
+            ae.printStackTrace();
+        }
+    }
+
+    /**
+     * Print out standard output via dry run
+     *
+     * @param value string value
+     * @throws IOException invalid input
+     */
+    public void stdOutDryRun(String value) throws IOException, ArgException {
+        CharUtil charUtil = CharUtil.getInstance();
+        CSV csv = CSV.getInstance();
+
+        // check if the value is actually a string characters
+        if (!charUtil.isStringOnly(value)) {
+            throw new ArgException("Invalid value, requires string only without any digital value");
+        }
+
+        // print upper case string value
+        System.out.println(charUtil.toUpper(value));
+
+        // print alternate upper and lower case
+        System.out.println(charUtil.alternateCharOdd(value));
+
+        // create csv file based on the value string
+        csv.writeData(new ArrayList<>(Collections.singletonList(charUtil.stringToCharAt(value))),
+                "hello-world.csv");
+        System.out.println("CSV created!");
+    }
+
+    /**
+     * Set dry run
+     *
+     * @param dryRun    dry run
+     */
+    public void setDryRun(boolean dryRun) {
+        this.dryRun = dryRun;
+    }
+
+    /**
+     * Is dry run?
+     *
+     * @return  is dry run or otherwise
+     */
+    public boolean isDryRun() {
+        return dryRun;
+    }
+}
