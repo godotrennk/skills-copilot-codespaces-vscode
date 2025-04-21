@@ -1,0 +1,26 @@
+Например, следующий шаг рабочего процесса GitHub Actions создаёт и отправляет образ с несколькими архитектурами. Параметр outputs задаёт описание образа.
+
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+- name: Build and push Docker image
+  uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
+  with:
+    context: .
+    file: ./Dockerfile
+    platforms: ${{ matrix.platforms }}
+    push: true
+    outputs: type=image,name=target,annotation-index.org.opencontainers.image.description=My multi-arch image
+Устранение неполадок
+
+сделайте 
+созддите \
+создайте 
+готов
+
+Клавиша	Описание
+org.opencontainers.source	URL-адрес репозитория, связанного с пакетом. Дополнительные сведения см. в разделе Подключение репозитория к пакету.
+org.opencontainers.image.description	Текстовое описание, ограниченное 512 символами. Это описание будет отображаться на странице пакета под его названием.
+org.opencontainers.image.licenses	Идентификатор лицензии SPDX, например «MIT», ограничен 256 символами. Лицензия будет отображаться на странице пакета на боковой панели «Сведения». Дополнительную информацию см. в списке лицензий SPDX.
