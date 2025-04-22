@@ -1,0 +1,98 @@
+Намёкает
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andrey</title>
+    <meta name="keywords" content="And" >
+    <meta name="description" content="eto" >
+<title>HTML Course!</title>
+</head>
+<body>
+    <h1>Texts in HTML</h1>
+
+    <h2>Heading 2</h2>
+
+    <h3>Heading 2</h3>
+
+    <h4>Heading 2</h4>
+
+    <h5>Heading 2</h5>
+
+    <h6>Heading 2</h6>
+
+    <p>lorem Рукастый <br>абзац захватил передовую!</p>
+    <hr>
+
+
+    <p>lorem Рукастый <strong>абзац</strong> захватил передовую!</p>
+
+    Lorem azazza
+
+
+<body>
+   <h2>Img with URL</h2> 
+    <img src="https://th.bing.com/th/id/OIP.nXOFv2e3DsFcjGiSAZHHnAHaEK?rs=1&pid=ImgDetMain" width="150"
+    <hr> 
+    <h1><strong>Андрей Михалевич</h1></body></strong></h1>
+    
+    
+    <p><em>Я основателно решил заниматься музыкой</p>
+<h4>Список социальных сетей:</h4>
+
+<a href="https://en.wikipedia.org/wiki/Instagram" target="_blank">Inst</a>
+
+<a href="https://en.wikipedia.org/wiki/Instagram" target="_blank">Inst</a>
+
+<a href="https://en.wikipedia.org/wiki/Instagram" target="_blank">Inst</a>
+
+<h2>Мои хобби</h2>
+<ol>
+    <li>Путешествия</li>
+    <li>Блоггинг</li>
+    <li>Одиночество</li> 
+</ol>
+<H2>Опыт работы border=2</H2>
+<table border="2">
+    <thead>
+        <tr>
+            <th>Название</th>
+
+            <th>Должность</th>
+
+            <th>Год</th>
+                
+           
+        </tr>
+
+    </thead>
+    <tbody></tbody>
+    <tr>
+        <td>Rukon</td>
+        <td>Razer</td>
+        <td>Soltar 20-20</td>
+
+    </tr>
+
+    <td>Epjan</td>
+    <td>Sanek</td>
+    <td>2020-2020</td>
+    <tr>
+        <td>GMC</td>
+    <td>SaROW</td>
+    <td>2020-2020</td>
+    <tr>
+        <td>GotUbe</td>
+    <td>Derict</td>
+    <td>2020-2021</td>
+    <tr>
+        <td>sss</td>
+        <td>Derict</td>
+        <td>2020-2111</td></tr>
+    </tr>
+    </tr>
+</table>
+    </body>
+</html>
